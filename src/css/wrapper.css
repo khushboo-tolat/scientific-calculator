@@ -1,0 +1,7 @@
+.wrapper {
+    width: 100%;
+    height: fit-content;
+    padding: 25px;
+    border-radius: 30px;
+    background-color:  rgba(33, 33, 33, .95);
+}

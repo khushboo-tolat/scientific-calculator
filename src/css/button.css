@@ -1,0 +1,24 @@
+button {
+    border: none;
+    background-color: rgba(65, 65, 65);
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    outline: none;
+}
+
+button:hover {
+    background-color: #d4ac0d;
+}
+
+.equals {
+    grid-column: 3 / 5;
+    background-color: #d4ac0d;
+}
+
+.equals:hover {
+    color: black;
+    background-color: #f7dc6f;
+}
