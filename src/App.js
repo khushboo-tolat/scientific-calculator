@@ -19,8 +19,8 @@ export const CalcContext = createContext();
 function App() {
     let [calc, setCalc] = useState({
         operand: "",
-        prev_operand: 0,
-        curr_operand: 0,
+        prev_operand: "",
+        curr_operand: "",
         expression: ""
     });
 

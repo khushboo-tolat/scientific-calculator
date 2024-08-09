@@ -30,6 +30,7 @@ const Button = ({value}) => {
                 computation();
             }
             catch(err){
+                console.log(err);
                 setCalc({
                     operand: "",
                     prev_operand: 0,
@@ -71,18 +72,21 @@ const Button = ({value}) => {
    const appendNumber = () => {
         currOper = calc.curr_operand;
         string = calc.expression;
+        console.log(string);
 
         if(value === '.' && currOper.toString().includes('.')) return;
         if(currOper == 0 && value == "00") value = "0";
 
-        if(currOper == 0){
-            currOper = parseInt(value);
-            string = value;
-        }
-        else{
+        // if(currOper == 0){
+        //     currOper = parseInt(value);
+        //     if(string == "")
+        //     string = value;
+        // }
+        // else{
+            console.log(string + "inside esle");
             string = string + value;
             currOper = `${currOper}${value}`;         
-        }
+       // }
 
         //currOper = formatOperand(currOper);
         console.log(string);
@@ -124,7 +128,7 @@ const Button = ({value}) => {
 
         switch(value) {
             case '√':
-                string = currOper * Math.sqrt(9);
+                string = `${currOper}${sciFunc[value]}`;
                 break;
         }
 
@@ -154,36 +158,37 @@ const Button = ({value}) => {
         let oper = calc.operand;
         prevOper = parseFloat(calc.prev_operand);
         currOper = parseFloat(calc.curr_operand);
+        string = calc.expression;
 
         //if(isNaN(prevOper) || isNaN(currOper)) return;
         
-        switch(oper) {
-            case '+':
-                compute = prevOper + currOper;
-                break;
-            case '-':
-                compute = prevOper - currOper;
-                break;
-            case '*':
-                compute = prevOper * currOper;
-                break;
-            case '÷':
-                if(currOper == '0') {
-                    compute = "Can't divide by 0";
-                }
-                else{
-                    compute = prevOper / currOper;
-                }
-                break;
-            case '%':
-                compute = prevOper % currOper;
-                break;
-            default:
+        // switch(oper) {
+        //     case '+':
+        //         compute = prevOper + currOper;
+        //         break;
+        //     case '-':
+        //         compute = prevOper - currOper;
+        //         break;
+        //     case '*':
+        //         compute = prevOper * currOper;
+        //         break;
+        //     case '÷':
+        //         if(currOper == '0') {
+        //             compute = "Can't divide by 0";
+        //         }
+        //         else{
+        //             compute = prevOper / currOper;
+        //         }
+        //         break;
+        //     case '%':
+        //         compute = prevOper % currOper;
+        //         break;
+        //     default:
                 console.log("Inside default");
                 console.log(currOper);
-                compute = eval(currOper);
-                return;
-        }
+                console.log(string);
+                compute = eval(string);
+       // }
 
         setCalc({
             ...calc,
